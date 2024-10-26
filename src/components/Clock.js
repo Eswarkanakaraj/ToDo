@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-
+import "./clock.css"
 const Clock = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -30,6 +30,7 @@ const Clock = () => {
 
   return (
     <div id="Time">
+      
       {formattedTime}
      <br></br>
      

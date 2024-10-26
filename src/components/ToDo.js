@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import "./ToDo.css";
 import Clock from "./Clock";
+import Accordion from "react-bootstrap/Accordion";
+import { FaTrash } from "react-icons/fa";
+
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 export default function ToDo() {
   const [task, setTask] = useState(""); // To store input value
@@ -32,7 +36,9 @@ export default function ToDo() {
 
   // New function to delete a task from the completed tasks
   const handleDeleteCompleted = (indexToRemove) => {
-    setCompletedTasks(completedTasks.filter((_, index) => index !== indexToRemove));
+    setCompletedTasks(
+      completedTasks.filter((_, index) => index !== indexToRemove)
+    );
   };
 
   return (
@@ -41,36 +47,60 @@ export default function ToDo() {
         <Row>
           <div className="todo-flex">
             <Col sm={12} lg={12} md={12}>
+          <br/>
+           
               <h1>My Day</h1>
+              
               <Clock />
-              <br />
+            <br/>
 
-              <h2>Tasks</h2>
               {tasks.map((item, index) => (
                 <div key={index} className="tasks">
-                  <input
-                    type="checkbox"
-                    onChange={() => handleComplete(index)} // Mark as complete on checkbox click
-                  />
+                  <div>
+                  <button
+                   onClick={() => handleComplete(index)} // Mark as complete on checkbox click
+                  > <IoIosAddCircleOutline className="complete" /></button>
                   {index + 1}: {item}
-                  <button onClick={() => handleDelete(index)}>delete</button>
+                  </div>
+                  <button onClick={() => handleDelete(index)}> <FaTrash />
+                  </button>
                 </div>
+                
               ))}
 
-              <h2>Completed Tasks</h2>
+              <br />
+
               <div className="completed-section">
-                {completedTasks.map((item, index) => (
-                  <div key={index} className="completed-task">
-                    {index + 1}: {item}
-                    <button onClick={() => handleDeleteCompleted(index)}>delete</button> {/* Delete button for completed tasks */}
-                  </div>
-                ))}
+                <Accordion defaultActiveKey="0" flush className="accordian">
+                  <Accordion.Item eventKey="0" className="accordion-item">
+                    <Accordion.Header className="accordion-header"  >Completed Tasks</Accordion.Header>
+                    <Accordion.Body className="accordian-body">
+                      {completedTasks.map((item, index) => (
+                     
+                        <div key={index} className="completed-task" style={{color:"white" ,opacity:"0.7",textDecoration:"line-through" }}>
+                          {index + 1}: {item}
+                          <button onClick={() => handleDeleteCompleted(index)}>
+                          <FaTrash />
+                          </button>{" "}
+                          {/* Delete button for completed tasks */}
+                        </div>
+                        
+                      ))}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
               </div>
             </Col>
 
             <Col sm={12} lg={12} md={12} className="addtask">
               <form onSubmit={handleSubmit}>
-                <input type="text" value={task} onChange={handleChange} />
+                <input
+                placeholder="+ Add Task "
+                  type="text"
+                  value={task}
+                  onChange={handleChange}
+                  required
+                />
               </form>
             </Col>
           </div>
