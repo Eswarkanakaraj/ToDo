@@ -47,7 +47,7 @@ export default function ToDo() {
         <Row>
           <div className="todo-flex">
             <Col sm={12} lg={12} md={12}>
-          <br/>
+          <br className="br"/>
            
               <h1>My Day</h1>
               
