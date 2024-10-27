@@ -90,4 +90,9 @@ align-items: center;
   body{
     height: auto;
   }
+  .tasks,
+.completed-task
+{
+  height: auto;
+}
 }
