@@ -89,7 +89,7 @@ align-items: center;
     display: none;
   }
   body{
-    height:   100%;
+    height:   80%;
   }
   .tasks,
 .completed-task
