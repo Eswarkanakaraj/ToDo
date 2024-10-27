@@ -8,6 +8,7 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   
 }
 h1 {
@@ -88,11 +89,12 @@ align-items: center;
     display: none;
   }
   body{
-    height: auto;
+    height:   100%;
   }
   .tasks,
 .completed-task
 {
   height: auto;
 }
+
 }
