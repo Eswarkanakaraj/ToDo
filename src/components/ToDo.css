@@ -90,11 +90,15 @@ align-items: center;
   }
  .todo-flex{
   height: 90vh;
+  overflow: hidden;
  }
   .tasks,
 .completed-task
 {
   height: auto;
+}
+body{
+  overflow-y: hidden;
 }
 
 }
