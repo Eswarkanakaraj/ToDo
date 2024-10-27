@@ -84,10 +84,10 @@ align-items: center;
   text-indent: 20px;
 }
 @media only screen and (max-width:426px) {
-  body{
-    overflow: hidden;
-  }
   .br{
     display: none;
+  }
+  body{
+    height: auto;
   }
 }
