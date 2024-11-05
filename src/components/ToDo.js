@@ -29,6 +29,8 @@ export default function ToDo() {
   };
 
   const handleComplete = (indexToComplete) => {
+    const audio=new Audio("ding1.mp3")
+    audio.play();
     const completedTask = tasks[indexToComplete]; // Get the completed task
     setTasks(tasks.filter((_, index) => index !== indexToComplete)); // Remove from tasks
     setCompletedTasks([...completedTasks, completedTask]); // Add to completed tasks
